@@ -10,8 +10,8 @@ import { getRequestEvent } from "solid-js/web";
 export function useServerContext() {
   const requestEvent = getRequestEvent();
   if (!requestEvent) {
-    console.warn("useCloudflare() called outside of a request event");
-    throw new Error("useCloudflare() called outside of a request event");
+    throw new Error("useServerContext() called outside of a request event");
   }
+
   return requestEvent.nativeEvent.context.cloudflare;
 }
