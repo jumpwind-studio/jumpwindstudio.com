@@ -1,20 +1,186 @@
+@import "tailwindcss/base";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background-rgb: 214, 219, 220;
-  --foreground-rgb: 0, 0, 0;
+@font-face {
+    font-family: "BricolageGrotesque";
+    src: url("/fonts/BricolageGrotesque.ttf") format("truetype-variations");
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-rgb: 0, 0, 0;
-    --foreground-rgb: 255, 255, 255;
-  }
+@font-face {
+    font-family: "VictorMono";
+    src: url("/fonts/VictorMono.ttf") format("truetype-variations");
 }
 
-body {
-  background: rgb(var(--background-rgb));
-  color: rgb(var(--foreground-rgb));
+@layer base {
+    :root {
+        --seafoam-50: 163 41.2% 96.7%;
+        --seafoam-100: 167 41.8% 89.2%;
+        --seafoam-200: 170 42.3% 78.2%;
+        --seafoam-300: 171 38.5% 64.3%;
+        --seafoam-400: 174 32.8% 50.4%;
+        --seafoam-500: 175 40.2% 40%;
+        --seafoam-600: 176 42% 33.1%;
+        --seafoam-700: 176 38.3% 26.1%;
+        --seafoam-800: 177 35.1% 21.8%;
+        --seafoam-900: 178 29.9% 19%;
+        --seafoam-950: 180 41.2% 10%;
+
+        /* background, popover, card, */
+        --light-01: 0 0% 100%;
+        /* foreground, popover-foreground, card-foreground, primary, secondary-foreground, accent-foreground */
+        --light-02: 222.2 47.4% 11.2%;
+        /* accent, muted, secondary */
+        --light-03: 210 40% 96.1%;
+        /* primary-foreground, destructive-foreground */
+        --light-04: 210 40% 98%;
+        /* border, input */
+        --light-05: 214.3 31.8% 91.4%;
+    }
+
+    :root {
+        --background: var(--light-01);
+        --foreground: var(--light-02);
+        --muted: var(--light-03);
+        --muted-foreground: 215.4 16.3% 46.9%;
+        --popover: var(--light-01);
+        --popover-foreground: var(--light-02);
+        --border: var(--light-05);
+        --input: var(--light-05);
+        --card: var(--light-01);
+        --card-foreground: var(--light-02);
+        --primary: var(--light-02);
+        --primary-foreground: var(--light-04);
+        --secondary: var(--light-03);
+        --secondary-foreground: var(--light-02);
+        --accent: var(--light-03);
+        --accent-foreground: var(--light-02);
+        --destructive: 0 100% 50%;
+        --destructive-foreground: var(--light-04);
+        --ring: 215 20.2% 65.1%;
+        --radius: 0.5rem;
+    }
+
+    .dark {
+        /* background, popover, card */
+        /* --dark-01: 224 71% 4%; */
+        --dark-01: var(--seafoam-950);
+
+        /* foreground, card-foreground */
+        /* --dark-02: 213 31% 91%; */
+        --dark-02: var(--seafoam-50);
+
+        /* accent, border, input, ring */
+        /* --dark-03: 216 34% 17%; */
+        --dark-03: var(--seafoam-200);
+
+        /* accent-foreground, primary, secondary-foreground, destructive-foreground */
+        /* --dark-04: 210 40% 98%; */
+        --dark-04: var(--seafoam-900);
+
+        /* primary-foreground, secondary */
+        /* --dark-05: 222.2 47.4% 11.2%; */
+        --dark-05: var(--seafoam-500);
+
+        /* muted */
+        /* --dark-06: 223 47% 11%; */
+        --dark-06: var(--seafoam-800);
+
+        /* muted-foreground */
+        /* --dark-07: 215.4 16.3% 56.9%; */
+        --dark-07: var(--seafoam-100);
+    }
+
+    .dark {
+        --background: var(--dark-01);
+        --foreground: var(--dark-02);
+        --muted: var(--dark-06);
+        --muted-foreground: var(--dark-07);
+        --accent: var(--dark-03);
+        --accent-foreground: var(--dark-04);
+        --popover: var(--dark-01);
+        --popover-foreground: var(--dark-07);
+        --border: var(--dark-03);
+        --input: var(--dark-03);
+        --card: var(--dark-01);
+        --card-foreground: var(--dark-02);
+        --primary: var(--dark-04);
+        --primary-foreground: var(--dark-07);
+        --secondary: var(--dark-07);
+        --secondary-foreground: var(--dark-01);
+        --destructive: 0 63% 31%;
+        --destructive-foreground: var(--dark-02);
+        --ring: var(--dark-03);
+    }
 }
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply font-sans antialiased bg-background text-foreground;
+    }
+
+    html,
+    body,
+    #app {
+        height: 100%;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-display;
+    }
+}
+
+/*
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 222.2 47.4% 11.2%;
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 222.2 47.4% 11.2%;
+        --border: 214.3 31.8% 91.4%;
+        --input: 214.3 31.8% 91.4%;
+        --card: 0 0% 100%;
+        --card-foreground: 222.2 47.4% 11.2%;
+        --primary: 222.2 47.4% 11.2%;
+        --primary-foreground: 210 40% 98%;
+        --secondary: 210 40% 96.1%;
+        --secondary-foreground: 222.2 47.4% 11.2%;
+        --accent: 210 40% 96.1%;
+        --accent-foreground: 222.2 47.4% 11.2%;
+        --destructive: 0 100% 50%;
+        --destructive-foreground: 210 40% 98%;
+        --ring: 215 20.2% 65.1%;
+        --radius: 0.5rem;
+    }
+
+    .dark {
+        --background: 180 41.2% 10%;
+        --foreground: 163 41.2% 96.7%;
+        --muted: 223 47% 11%;
+        --muted-foreground: 215.4 16.3% 56.9%;
+        --accent: 216 34% 17%;
+        --accent-foreground: 210 40% 98%;
+        --popover: 180 41.2% 10%;
+        --popover-foreground: 215 20.2% 65.1%;
+        --border: 216 34% 17%;
+        --input: 216 34% 17%;
+        --card: 224 71% 4%;
+        --card-foreground: 213 31% 91%;
+        --primary: 210 40% 98%;
+        --primary-foreground: 222.2 47.4% 1.2%;
+        --secondary: 222.2 47.4% 11.2%;
+        --secondary-foreground: 210 40% 98%;
+        --destructive: 0 63% 31%;
+        --destructive-foreground: 210 40% 98%;
+        --ring: 216 34% 17%;
+    }
+}
+*/
