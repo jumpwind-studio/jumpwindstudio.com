@@ -37,7 +37,7 @@ export const Nav = (props: NavProps) => {
             <A
               href={item.href}
               bool:data-active={isActive(item.href)}
-              class="font-medium text-sm hover:underline data-[active]:text-emerald-300"
+              class="font-medium text-sm hover:underline data-active:text-emerald-300"
             >
               {item.text}
             </A>

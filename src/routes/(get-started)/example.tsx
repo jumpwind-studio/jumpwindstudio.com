@@ -31,7 +31,7 @@ export default function ExamplePage() {
         <h1 class="text-pretty bg-linear-to-b from-foreground to-foreground/75 bg-clip-text font-display font-semibold text-3xl text-transparent tracking-tight md:text-4xl">
           Submit your Open Source Software
         </h1>
-        <h2 class="max-w-2xl text-pretty text-secondary md:text-lg *:[&[href]]:underline *:[&[href]]:hover:text-primary">
+        <h2 class="max-w-2xl text-pretty text-secondary md:text-lg [&[href]]:*:underline hover:[&[href]]:*:text-primary">
           Help us grow the list of open source alternatives to proprietary
           software. Contribute to OpenAlternative by submitting a new open
           source alternative.

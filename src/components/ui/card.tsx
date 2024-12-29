@@ -16,7 +16,7 @@ export const Card = <T extends ValidComponent = "div">(
     <Polymorphic
       as="div"
       class={cn(
-        "rounded-lg border bg-card text-card-foreground shadow-sm",
+        "rounded-lg border bg-card text-card-foreground shadow-xs",
         local.class,
       )}
       {...rest}

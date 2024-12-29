@@ -10,7 +10,7 @@ export const Header = (props: HeaderProps) => {
   return (
     <header
       class={cn(
-        "sticky top-0 z-50 w-full bg-background/80 text-foreground backdrop-blur-sm",
+        "sticky top-0 z-50 w-full bg-background/80 text-foreground backdrop-blur-xs",
         "h-[var(--header-height)]",
         local.class,
       )}

@@ -14,7 +14,7 @@ function Color(props: { color: Color }) {
   return (
     <button
       type="button"
-      class="group relative flex aspect-[3/1] w-full flex-1 flex-col gap-2 text-[--text] sm:aspect-[2/3] sm:h-auto sm:w-auto [&>svg]:absolute [&>svg]:top-4 [&>svg]:right-4 [&>svg]:h-3.5 [&>svg]:w-3.5 [&>svg]:opacity-0 [&>svg]:transition-opacity"
+      class="group relative flex aspect-3/1 w-full flex-1 flex-col gap-2 text-(--text) sm:aspect-2/3 sm:h-auto sm:w-auto [&>svg]:absolute [&>svg]:top-4 [&>svg]:right-4 [&>svg]:h-3.5 [&>svg]:w-3.5 [&>svg]:opacity-0 [&>svg]:transition-opacity"
       style={
         {
           "--bg": `hsl(${props.color.hsl})`,
@@ -34,7 +34,7 @@ function Color(props: { color: Color }) {
       >
         <CheckIcon class="group-hover:opacity-100" />
       </Show>
-      <div class="w-full flex-1 rounded-md bg-[--bg] md:rounded-lg" />
+      <div class="w-full flex-1 rounded-md bg-(--bg) md:rounded-lg" />
       <div class="flex w-full flex-col items-center justify-center gap-1">
         <span class="hidden font-mono text-muted-foreground text-xs tabular-nums transition-colors group-hover:text-foreground lg:flex">
           {props.color.class}
@@ -112,7 +112,7 @@ export default function ColorsPage() {
           {(colorPalette) => (
             <div
               id={colorPalette.name}
-              class="rounded-lg shadow-sm ring-1 ring-border"
+              class="rounded-lg shadow-xs ring-1 ring-border"
             >
               <div class="flex items-center p-2 pb-0">
                 <div class="flex-1 pl-1 font-medium text-sm">

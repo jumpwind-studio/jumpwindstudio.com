@@ -179,7 +179,7 @@ export const ServicesSection = (props: ComponentProps<"section">) => {
 
   return (
     <Section
-      class={cn("bg-gradient-to-b from-seafoam-50 py-24", local.class)}
+      class={cn("bg-linear-to-b from-seafoam-50 py-24", local.class)}
       {...rest}
     >
       <SectionHeader class="mx-auto mb-16 max-w-3xl text-center">
