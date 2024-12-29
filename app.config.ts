@@ -19,7 +19,7 @@ export default defineConfig({
     server: {
       preset: "cloudflare-pages",
       minify: false,
-      sourceMap: "inline",
+      // sourceMap: "inline",
       rollupConfig: {
         external: ["node:async_hooks"],
       },
