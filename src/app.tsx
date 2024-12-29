@@ -1,10 +1,10 @@
-import { Router } from "@solidjs/router";
-import { FileRoutes } from "@solidjs/start/router";
-import { Suspense } from "solid-js";
-import { MetaProvider } from "@solidjs/meta";
 import { Footer } from "@/components/core/footer";
 import { Header } from "@/components/core/header";
 import { Nav } from "@/components/core/nav";
+import { MetaProvider } from "@solidjs/meta";
+import { Router } from "@solidjs/router";
+import { FileRoutes } from "@solidjs/start/router";
+import { Suspense } from "solid-js";
 
 import "./app.css";
 
@@ -13,11 +13,15 @@ export default function App() {
     <Router
       root={(props) => (
         <MetaProvider>
-          <Header>
-            <Nav />
-          </Header>
-          <Suspense>{props.children}</Suspense>
-          <Footer />
+          <Suspense>
+            <Header>
+              <Nav />
+            </Header>
+            <div class="h-[calc(100svh-var(--header-height))]">
+              {props.children}
+              <Footer />
+            </div>
+          </Suspense>
         </MetaProvider>
       )}
     >
