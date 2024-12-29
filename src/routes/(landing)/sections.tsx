@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { ArrowRight, Code, Rocket, Users } from "lucide-solid";
 import type { Component } from "solid-js";
-import { type ComponentProps, For, Suspense, splitProps } from "solid-js";
+import { type ComponentProps, For, splitProps } from "solid-js";
 import {
   Section,
   SectionContent,
@@ -12,65 +12,6 @@ import {
   SectionSubtitle,
   SectionTitle,
 } from "./components/section";
-
-export const ColorSection = (props: ComponentProps<"section">) => {
-  const [local, rest] = splitProps(props, ["class", "children"]);
-
-  const tw = () => [
-    { bg: "bg-background", fg: "text-foreground" },
-    { bg: "bg-muted", fg: "text-muted-foreground" },
-    { bg: "bg-popover", fg: "text-popover-foreground" },
-    { bg: "bg-card", fg: "text-card-foreground" },
-    { bg: "bg-primary", fg: "text-primary-foreground" },
-    { bg: "bg-secondary", fg: "text-secondary-foreground" },
-    { bg: "bg-accent", fg: "text-accent-foreground" },
-    { bg: "bg-destructive", fg: "text-destructive-foreground" },
-    // "border",
-    // "input",
-  ];
-
-  return (
-    <Section class={cn("", local.class)} {...rest}>
-      <div class="flex flex-col gap-1 bg-white p-2 sm:flex-row sm:gap-2">
-        <Suspense>
-          <For each={tw()}>
-            {(color) => (
-              <div
-                class={cn(
-                  "dark",
-                  `${color.bg}`,
-                  `${color.fg}`,
-                  "size-40 rounded-md",
-                  "flex items-center justify-center text-lg",
-                )}
-              >
-                {color.bg}
-              </div>
-            )}
-          </For>
-        </Suspense>
-      </div>
-      <div class="flex flex-col gap-1 bg-white p-2 sm:flex-row sm:gap-2">
-        <Suspense>
-          <For each={tw()}>
-            {(color) => (
-              <div
-                class={cn(
-                  `${color.bg}`,
-                  `${color.fg}`,
-                  "size-40 rounded-md",
-                  "flex items-center justify-center text-lg",
-                )}
-              >
-                {color.bg}
-              </div>
-            )}
-          </For>
-        </Suspense>
-      </div>
-    </Section>
-  );
-};
 
 type ProcessStep = {
   step: string;

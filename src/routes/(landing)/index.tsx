@@ -1,5 +1,4 @@
 import {
-  ColorSection,
   ConsultSection,
   HeroSection,
   IdealClientSection,
@@ -11,7 +10,6 @@ import {
 export default function LandingPage() {
   return (
     <main class="bg-background text-background">
-      <ColorSection />
       <HeroSection />
       <ServicesSection />
       <ProcessSection />
