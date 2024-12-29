@@ -1,4 +1,5 @@
 import { getColors, useColors } from "@/lib/colors";
+import { cn } from "@/lib/utils";
 import { writeClipboard } from "@solid-primitives/clipboard";
 import { CheckIcon, ClipboardIcon } from "lucide-solid";
 import { For, type JSX, Show, Suspense, createSignal } from "solid-js";
@@ -46,15 +47,63 @@ function Color(props: { color: Color }) {
   );
 }
 
+export const ColorSection = () => {
+  const tw = () => [
+    { bg: "bg-background", fg: "text-foreground" },
+    { bg: "bg-muted", fg: "text-muted-foreground" },
+    { bg: "bg-popover", fg: "text-popover-foreground" },
+    { bg: "bg-card", fg: "text-card-foreground" },
+    { bg: "bg-primary", fg: "text-primary-foreground" },
+    { bg: "bg-secondary", fg: "text-secondary-foreground" },
+    { bg: "bg-accent", fg: "text-accent-foreground" },
+    { bg: "bg-destructive", fg: "text-destructive-foreground" },
+  ];
+
+  return (
+    <>
+      <div class="flex flex-col gap-1 bg-white p-2 sm:flex-row sm:gap-2">
+        <Suspense>
+          <For each={tw()}>
+            {(color) => (
+              <div
+                class={cn(
+                  "dark",
+                  `${color.bg}`,
+                  `${color.fg}`,
+                  "size-40 rounded-md",
+                  "flex items-center justify-center text-lg",
+                )}
+              >
+                {color.bg}
+              </div>
+            )}
+          </For>
+        </Suspense>
+      </div>
+      <div class="flex flex-col gap-1 bg-white p-2 sm:flex-row sm:gap-2">
+        <Suspense>
+          <For each={tw()}>
+            {(color) => (
+              <div
+                class={cn(
+                  `${color.bg}`,
+                  `${color.fg}`,
+                  "size-40 rounded-md",
+                  "flex items-center justify-center text-lg",
+                )}
+              >
+                {color.bg}
+              </div>
+            )}
+          </For>
+        </Suspense>
+      </div>
+    </>
+  );
+};
+
 export default function ColorsPage() {
   const colors = () => getColors();
-
-  // <Suspense>
-  // <ColorFormatSelector
-  // color={colorPalette.colors[0]}
-  // class="ml-auto"
-  // />
-  // </Suspense>
 
   return (
     <main class="bg-background text-background">
