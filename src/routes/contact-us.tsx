@@ -4,6 +4,7 @@ import {
   TextFieldInput,
   TextFieldTextArea,
 } from "@/components/ui/textfield";
+import { cn } from "@/lib/utils";
 import { Label } from "@kobalte/core/text-field";
 import { createForm, valiForm } from "@modular-forms/solid";
 import * as v from "valibot";
@@ -33,16 +34,47 @@ export default function ContactUsPage() {
             <TextField class="flex flex-col items-start gap-2">
               <Label
                 for={field.name}
-                class="block font-medium text-foreground text-sm after:ml-0.5 after:text-red-600 after:content-['*'] [&[for]]:cursor-pointer"
+                class={cn(
+                  // display
+                  "block",
+                  // colors
+                  "text-foreground",
+                  // font
+                  "font-medium text-sm",
+                  // after
+                  "after:ml-0.5 after:text-red-600 after:content-['*']",
+                  // for
+                  "[&[for]]:cursor-pointer",
+                )}
               >
-                {props.name}
+                Email
               </Label>
               <TextFieldInput
                 {...props}
                 id={field.name}
                 value={field.value}
                 type="email"
-                class="min-h-0 appearance-none self-stretch truncate break-words rounded-lg border bg-background px-4 py-2.5 font-medium text-[0.8125rem] text-secondary leading-tight transition duration-150 invalid:ring-[3px] invalid:ring-destructive focus-visible:border-border-dark focus-visible:outline-hidden focus-visible:ring-[3px] focus-visible:ring-border/40 disabled:text-secondary/50 sm:text-sm"
+                class={cn(
+                  "min-h-0 appearance-none self-stretch",
+                  // font
+                  "truncate break-words font-medium text-[0.8125rem] leading-tight",
+                  // padding
+                  "px-4 py-2.5",
+                  // colors
+                  "bg-background text-secondary-foreground ",
+                  // border
+                  "rounded-lg border",
+                  // animation
+                  "transition duration-150",
+                  // invalid
+                  "invalid:ring-[3px] invalid:ring-destructive",
+                  // focus-visible
+                  "focus-visible:border-border focus-visible:outline-hidden focus-visible:ring-[3px] focus-visible:ring-border/40",
+                  // disabled
+                  "disabled:text-secondary-foreground/50",
+                  // sm
+                  "sm:text-sm",
+                )}
                 aria-invalid={!!field.error}
                 aria-errormessage={`${props.name}-error`}
               />
@@ -63,7 +95,7 @@ export default function ContactUsPage() {
                 {...props}
                 id={field.name}
                 value={field.value}
-                class="min-h-0 appearance-none self-stretch truncate break-words rounded-lg border bg-background px-4 py-2.5 font-medium text-[0.8125rem] text-secondary leading-tight transition duration-150 invalid:ring-[3px] invalid:ring-destructive focus-visible:border-border-dark focus-visible:outline-hidden focus-visible:ring-[3px] focus-visible:ring-border/40 disabled:text-secondary/50 sm:text-sm"
+                class="min-h-0 appearance-none self-stretch truncate break-words rounded-lg border bg-background px-4 py-2.5 font-medium text-[0.8125rem] text-secondary-foreground leading-tight transition duration-150 invalid:ring-[3px] invalid:ring-destructive focus-visible:border-border-dark focus-visible:outline-hidden focus-visible:ring-[3px] focus-visible:ring-border/40 disabled:text-secondary/50 sm:text-sm"
                 aria-invalid={!!field.error}
                 aria-errormessage={`${props.name}-error`}
               />
@@ -84,7 +116,7 @@ export default function ContactUsPage() {
                 {...props}
                 id={field.name}
                 value={field.value}
-                class="min-h-0 appearance-none self-stretch truncate break-words rounded-lg border bg-background px-4 py-2.5 font-medium text-[0.8125rem] text-secondary leading-tight transition duration-150 invalid:ring-[3px] invalid:ring-destructive focus-visible:border-border-dark focus-visible:outline-hidden focus-visible:ring-[3px] focus-visible:ring-border/40 disabled:text-secondary/50 sm:text-sm"
+                class="min-h-0 appearance-none self-stretch truncate break-words rounded-lg border bg-background px-4 py-2.5 font-medium text-[0.8125rem] text-secondary-foreground leading-tight transition duration-150 invalid:ring-[3px] invalid:ring-destructive focus-visible:border-border-dark focus-visible:outline-hidden focus-visible:ring-[3px] focus-visible:ring-border/40 disabled:text-secondary/50 sm:text-sm"
                 aria-invalid={!!field.error}
                 aria-errormessage={`${props.name}-error`}
               />

@@ -59,10 +59,7 @@ export const Footer = (props: FooterProps) => {
               Get insights on mission-driven web development.
             </p>
             <form class="flex gap-2">
-              <Input
-                placeholder="Enter your email"
-                class="placeholder:text-seafoam-200/50"
-              />
+              <Input placeholder="Enter your email" />
               <Button variant="secondary">Subscribe</Button>
             </form>
           </div>

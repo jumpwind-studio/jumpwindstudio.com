@@ -31,7 +31,7 @@ export const HeroSection = (props: ComponentProps<"section">) => {
     >
       <div class="grid items-center gap-12 lg:grid-cols-2">
         <div class="space-y-8">
-          <SectionTitle class="font-bold text-4xl text-amber-100 leading-tight sm:text-5xl lg:text-6xl">
+          <SectionTitle class="font-bold text-4xl leading-tight sm:text-5xl lg:text-6xl">
             Transform Your Impact with a Website That Works
           </SectionTitle>
           <SectionSubtitle class="text-foreground text-lg">
@@ -40,33 +40,28 @@ export const HeroSection = (props: ComponentProps<"section">) => {
           </SectionSubtitle>
           <SectionContent class="flex flex-col gap-4 sm:flex-row">
             <div class="flex-1">
-              <Input
-                placeholder="Enter your email"
-                class="border-white/20 bg-white/10 text-primary placeholder:text-primary/60"
-              />
+              <Input placeholder="Enter your email" />
             </div>
-            <Button size="lg">
-              Schedule Consultation <ArrowRight class="ml-2 h-4 w-4" />
+            <Button>
+              Chat with us! <ArrowRight class="ml-2 h-4 w-4" />
             </Button>
           </SectionContent>
         </div>
-        <div class="relative">
-          <div class="relative h-[600px]">
-            <img
-              src="/images/placeholder.png?height=600&width=800"
-              alt="Website mockup"
-              width={800}
-              height={600}
-              class="absolute rotate-6 transform rounded-xl shadow-2xl"
-            />
-            <img
-              src="/images/placeholder.png?height=300&width=400"
-              alt="Mobile mockup"
-              width={400}
-              height={300}
-              class="-left-12 -rotate-12 absolute bottom-0 transform rounded-xl shadow-2xl"
-            />
-          </div>
+        <div class="relative h-[600px]">
+          <img
+            src="/images/placeholder.png?height=600&width=800"
+            alt="Website mockup"
+            width={800}
+            height={600}
+            class="absolute rotate-6 transform rounded-xl shadow-2xl"
+          />
+          <img
+            src="/images/placeholder.png?height=300&width=400"
+            alt="Mobile mockup"
+            width={400}
+            height={300}
+            class="-left-12 -rotate-12 absolute bottom-0 transform rounded-xl shadow-2xl"
+          />
         </div>
       </div>
 
@@ -137,7 +132,7 @@ export function ProcessSection(props: ComponentProps<"section">) {
                 {item.step}
               </div>
               <h3 class="mb-4 font-semibold text-xl">{item.title}</h3>
-              <p class="text-seafoam-600">{item.description}</p>
+              <p class="">{item.description}</p>
             </div>
           )}
         </For>
@@ -178,10 +173,7 @@ export const ServicesSection = (props: ComponentProps<"section">) => {
     ] satisfies Service[];
 
   return (
-    <Section
-      class={cn("bg-linear-to-b from-seafoam-50 py-24", local.class)}
-      {...rest}
-    >
+    <Section class={cn("py-24", local.class)} {...rest}>
       <SectionHeader class="mx-auto mb-16 max-w-3xl text-center">
         <SectionTitle class="text-secondary-foreground">
           Why Choose Jumpwind Studio?
@@ -196,8 +188,8 @@ export const ServicesSection = (props: ComponentProps<"section">) => {
           {(item) => (
             <Card class="group relative overflow-hidden">
               <CardContent class="p-8">
-                <div class="absolute inset-0 bg-seafoam-500/5 transition-colors group-hover:bg-seafoam-500/10" />
-                <item.icon class="mb-6 h-12 w-12 text-seafoam-300" />
+                <div class="absolute inset-0 transition-colors" />
+                <item.icon class="mb-6 h-12 w-12" />
                 <h3 class="mb-2 font-semibold text-xl">{item.title}</h3>
                 <p class="text-muted-foreground">{item.description}</p>
               </CardContent>
@@ -220,7 +212,7 @@ export function TestimonialSection(props: ComponentProps<"section">) {
           dramatic increase in engagement and support since launching."
         </blockquote>
         <div class="flex items-center gap-4">
-          <div class="h-12 w-12 rounded-full bg-seafoam-900" />
+          <div class="h-12 w-12 rounded-full" />
           <div>
             <div class="font-semibold">Sarah Chen</div>
             <div class="text-foreground">Ocean Conservation Foundation</div>

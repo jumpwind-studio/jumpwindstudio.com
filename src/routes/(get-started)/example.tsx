@@ -4,6 +4,7 @@ import {
   TextFieldErrorMessage,
   TextFieldInput,
 } from "@/components/ui/textfield";
+import { cn } from "@/lib/utils";
 import { createForm, valiForm } from "@modular-forms/solid";
 import * as v from "valibot";
 
@@ -31,7 +32,7 @@ export default function ExamplePage() {
         <h1 class="text-pretty bg-linear-to-b from-foreground to-foreground/75 bg-clip-text font-display font-semibold text-3xl text-transparent tracking-tight md:text-4xl">
           Submit your Open Source Software
         </h1>
-        <h2 class="max-w-2xl text-pretty text-secondary md:text-lg [&[href]]:*:underline hover:[&[href]]:*:text-primary">
+        <h2 class="max-w-2xl text-pretty text-secondary-foreground md:text-lg [&[href]]:*:underline hover:[&[href]]:*:text-primary">
           Help us grow the list of open source alternatives to proprietary
           software. Contribute to OpenAlternative by submitting a new open
           source alternative.
@@ -45,16 +46,47 @@ export default function ExamplePage() {
                 <TextField class="flex flex-col items-start gap-2">
                   <Label
                     for={field.name}
-                    class="block font-medium text-foreground text-sm after:ml-0.5 after:text-red-600 after:content-['*'] [&[for]]:cursor-pointer"
+                    class={cn(
+                      // display
+                      "block",
+                      // colors
+                      "text-foreground",
+                      // font
+                      "font-medium text-sm",
+                      // after
+                      "after:ml-0.5 after:text-red-600 after:content-['*']",
+                      // for
+                      "[&[for]]:cursor-pointer",
+                    )}
                   >
-                    {props.name}
+                    Email
                   </Label>
                   <TextFieldInput
                     {...props}
                     id={field.name}
                     value={field.value}
                     type="email"
-                    class="min-h-0 appearance-none self-stretch truncate break-words rounded-lg border bg-background px-4 py-2.5 font-medium text-[0.8125rem] text-secondary leading-tight transition duration-150 invalid:ring-[3px] invalid:ring-destructive focus-visible:border-border-dark focus-visible:outline-hidden focus-visible:ring-[3px] focus-visible:ring-border/40 disabled:text-secondary/50 sm:text-sm"
+                    class={cn(
+                      "min-h-0 appearance-none self-stretch",
+                      // font
+                      "truncate break-words font-medium text-[0.8125rem] leading-tight",
+                      // padding
+                      "px-4 py-2.5",
+                      // colors
+                      "bg-background text-secondary-foreground ",
+                      // border
+                      "rounded-lg border",
+                      // animation
+                      "transition duration-150",
+                      // invalid
+                      "invalid:ring-[3px] invalid:ring-destructive",
+                      // focus-visible
+                      "focus-visible:border-border focus-visible:outline-hidden focus-visible:ring-[3px] focus-visible:ring-border/40",
+                      // disabled
+                      "disabled:text-secondary-foreground/50",
+                      // sm
+                      "sm:text-sm",
+                    )}
                     aria-invalid={!!field.error}
                     aria-errormessage={`${props.name}-error`}
                   />
@@ -74,7 +106,7 @@ export default function ExamplePage() {
         </div>
         <div class="flex w-full flex-col gap-6 md:sticky md:top-16 md:z-10">
           <div class="relative flex w-full transform-gpu flex-col items-start gap-4 rounded-lg border bg-card p-5 focus-visible:border-border-dark focus-visible:outline-hidden focus-visible:ring-[3px] focus-visible:ring-border/40 hover:[&[href]]:bg-card-dark">
-            <div class="prose prose-neutral dark:prose-invert prose-code:mx-[0.088em] prose-li:mt-2 prose-headings:scroll-mt-20 text-pretty prose-code:rounded prose-img:rounded-md prose-pre:rounded-none prose-img:border prose-hr:border-foreground prose-img:border-neutral-200 prose-code:bg-foreground/10 prose-code:px-[0.33em] prose-code:py-[0.166em] prose-a:font-normal prose-code:font-normal prose-h5:font-medium prose-h6:font-medium prose-headings:font-semibold prose-pre:font-mono prose-a:text-foreground prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-2xl prose-h4:text-xl prose-h5:text-base prose-h6:text-sm prose-headings:text-foreground prose-lead:text-lg/relaxed prose-strong:text-foreground text-secondary text-sm/normal prose-h5:tracking-micro prose-h6:tracking-normal prose-headings:tracking-tight prose-code:before:hidden prose-code:after:hidden prose-li:first:m-0 prose-p:first:mt-0 prose-ul:first:mt-0 prose-p:last:mb-0 prose-ul:last:mb-0 prose-a:hover:text-primary md:prose-h1:text-4xl md:prose-h2:text-3xl">
+            <div class="prose prose-neutral dark:prose-invert prose-code:mx-[0.088em] prose-li:mt-2 prose-headings:scroll-mt-20 text-pretty prose-code:rounded prose-img:rounded-md prose-pre:rounded-none prose-img:border prose-hr:border-foreground prose-img:border-neutral-200 prose-code:bg-foreground/10 prose-code:px-[0.33em] prose-code:py-[0.166em] prose-a:font-normal prose-code:font-normal prose-h5:font-medium prose-h6:font-medium prose-headings:font-semibold prose-pre:font-mono prose-a:text-foreground prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-2xl prose-h4:text-xl prose-h5:text-base prose-h6:text-sm prose-headings:text-foreground prose-lead:text-lg/relaxed prose-strong:text-foreground text-secondary-foreground text-sm/normal prose-h5:tracking-micro prose-h6:tracking-normal prose-headings:tracking-tight prose-code:before:hidden prose-code:after:hidden prose-li:first:m-0 prose-p:first:mt-0 prose-ul:first:mt-0 prose-p:last:mb-0 prose-ul:last:mb-0 prose-a:hover:text-primary md:prose-h1:text-4xl md:prose-h2:text-3xl">
               <p>
                 <strong>Note:</strong> Submission alone does not guarantee a
                 feature. Please make sure the software you're submitting is:
@@ -95,104 +127,6 @@ export default function ExamplePage() {
   );
 }
 
-// {/* <div class="flex flex-col items-start gap-2"> */}
-// {/*   <label */}
-// {/*     class="block font-medium text-foreground text-sm after:ml-0.5 after:text-red-600 after:content-['*'] [&[for]]:cursor-pointer" */}
-// {/*     aria-label="Label" */}
-// {/*     for=":r1:-form-item" */}
-// {/*   > */}
-// {/*     Your Email: */}
-// {/*   </label> */}
-// {/*   <input */}
-// {/*     class="min-h-0 appearance-none self-stretch truncate break-words rounded-lg border bg-background px-4 py-2.5 font-medium text-[0.8125rem] text-secondary leading-tight transition duration-150 focus-visible:border-border-dark focus-visible:outline-hidden focus-visible:ring-[3px] focus-visible:ring-border/40 disabled:text-secondary/50 sm:text-sm" */}
-// {/*     placeholder="john@doe.com" */}
-// {/*     data-1p-ignore="true" */}
-// {/*     id=":r1:-form-item" */}
-// {/*     aria-describedby=":r1:-form-item-description" */}
-// {/*     aria-invalid="false" */}
-// {/*     type="email" */}
-// {/*     value="" */}
-// {/*     name="submitterEmail" */}
-// {/*   /> */}
-// {/* </div> */}
-// {/* <div class="flex flex-col items-start gap-2"> */}
-// {/*   <label */}
-// {/*     class="block font-medium text-foreground text-sm after:ml-0.5 after:text-red-600 after:content-['*'] [&[for]]:cursor-pointer" */}
-// {/*     aria-label="Label" */}
-// {/*     for=":r2:-form-item" */}
-// {/*   > */}
-// {/*     Name: */}
-// {/*   </label> */}
-// {/*   <input */}
-// {/*     class="min-h-0 appearance-none self-stretch truncate break-words rounded-lg border bg-background px-4 py-2.5 font-medium text-[0.8125rem] text-secondary leading-tight transition duration-150 focus-visible:border-border-dark focus-visible:outline-hidden focus-visible:ring-[3px] focus-visible:ring-border/40 disabled:text-secondary/50 sm:text-sm" */}
-// {/*     placeholder="PostHog" */}
-// {/*     data-1p-ignore="true" */}
-// {/*     id=":r2:-form-item" */}
-// {/*     aria-describedby=":r2:-form-item-description" */}
-// {/*     aria-invalid="false" */}
-// {/*     type="text" */}
-// {/*     value="" */}
-// {/*     name="name" */}
-// {/*   /> */}
-// {/* </div> */}
-// {/* <div class="flex flex-col items-start gap-2"> */}
-// {/*   <label */}
-// {/*     class="block font-medium text-foreground text-sm after:ml-0.5 after:text-red-600 after:content-['*'] [&[for]]:cursor-pointer" */}
-// {/*     aria-label="Label" */}
-// {/*     for=":r3:-form-item" */}
-// {/*   > */}
-// {/*     Website URL: */}
-// {/*   </label> */}
-// {/*   <input */}
-// {/*     class="min-h-0 appearance-none self-stretch truncate break-words rounded-lg border bg-background px-4 py-2.5 font-medium text-[0.8125rem] text-secondary leading-tight transition duration-150 focus-visible:border-border-dark focus-visible:outline-hidden focus-visible:ring-[3px] focus-visible:ring-border/40 disabled:text-secondary/50 sm:text-sm" */}
-// {/*     placeholder="https://posthog.com" */}
-// {/*     id=":r3:-form-item" */}
-// {/*     aria-describedby=":r3:-form-item-description" */}
-// {/*     aria-invalid="false" */}
-// {/*     type="url" */}
-// {/*     value="" */}
-// {/*     name="website" */}
-// {/*   /> */}
-// {/* </div> */}
-// {/* <div class="col-span-full flex flex-col items-start gap-2"> */}
-// {/*   <label */}
-// {/*     class="block font-medium text-foreground text-sm after:ml-0.5 after:text-red-600 after:content-['*'] [&[for]]:cursor-pointer" */}
-// {/*     aria-label="Label" */}
-// {/*     for=":r4:-form-item" */}
-// {/*   > */}
-// {/*     Repository URL: */}
-// {/*   </label> */}
-// {/*   <input */}
-// {/*     class="min-h-0 appearance-none self-stretch truncate break-words rounded-lg border bg-background px-4 py-2.5 font-medium text-[0.8125rem] text-secondary leading-tight transition duration-150 focus-visible:border-border-dark focus-visible:outline-hidden focus-visible:ring-[3px] focus-visible:ring-border/40 disabled:text-secondary/50 sm:text-sm" */}
-// {/*     placeholder="https://github.com/posthog/posthog" */}
-// {/*     id=":r4:-form-item" */}
-// {/*     aria-describedby=":r4:-form-item-description" */}
-// {/*     aria-invalid="false" */}
-// {/*     type="url" */}
-// {/*     value="" */}
-// {/*     name="repository" */}
-// {/*   /> */}
-// {/* </div> */}
-// {/* <div class="col-span-full flex flex-col items-start gap-2"> */}
-// {/*   <label */}
-// {/*     class="block font-medium text-foreground text-sm [&[for]]:cursor-pointer" */}
-// {/*     aria-label="Label" */}
-// {/*     for=":r5:-form-item" */}
-// {/*   > */}
-// {/*     Suggest an alternative: */}
-// {/*   </label> */}
-// {/*   <input */}
-// {/*     class="min-h-0 appearance-none self-stretch truncate break-words rounded-lg border bg-background px-4 py-2.5 font-medium text-[0.8125rem] text-secondary leading-tight transition duration-150 focus-visible:border-border-dark focus-visible:outline-hidden focus-visible:ring-[3px] focus-visible:ring-border/40 disabled:text-secondary/50 sm:text-sm" */}
-// {/*     placeholder="Which well-known tool is this an alternative to?" */}
-// {/*     id=":r5:-form-item" */}
-// {/*     aria-describedby=":r5:-form-item-description" */}
-// {/*     aria-invalid="false" */}
-// {/*     type="text" */}
-// {/*     value="" */}
-// {/*     name="submitterNote" */}
-// {/*   /> */}
-// {/* </div> */}
-
 export function ExampleFooter() {
   return (
     <footer class="mt-auto flex flex-col gap-y-8 border-foreground/10 border-t pt-8 md:pt-10 lg:pt-12">
@@ -209,7 +143,7 @@ export function ExampleFooter() {
             <form class="flex w-full flex-col gap-3" novalidate>
               <div class="flex w-full overflow-clip rounded-lg border focus-within:border-border-dark focus-within:outline-hidden focus-within:ring-[3px] focus-within:ring-border/40">
                 <input
-                  class="min-h-0 min-w-0 flex-1 appearance-none self-stretch truncate break-words rounded-md border bg-background px-3 py-2 font-medium text-[0.8125rem] text-secondary leading-tight outline-0 ring-0! transition duration-150 focus-visible:border-border-dark focus-visible:outline-hidden focus-visible:ring-[3px] focus-visible:ring-border/40 disabled:text-secondary/50"
+                  class="min-h-0 min-w-0 flex-1 appearance-none self-stretch truncate break-words rounded-md border bg-background px-3 py-2 font-medium text-[0.8125rem] text-secondary-foreground leading-tight outline-0 ring-0! transition duration-150 focus-visible:border-border-dark focus-visible:outline-hidden focus-visible:ring-[3px] focus-visible:ring-border/40 disabled:text-secondary/50"
                   type="email"
                   placeholder="Enter your email"
                   required

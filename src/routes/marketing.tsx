@@ -7,10 +7,8 @@ export default function Home() {
         <div class="flex max-h-40 items-center gap-4 divide-x-4 divide-amber-500/80 bg-amber-600 px-4 text-left">
           <MirrorsEdgeLogo class="-scale-100 size-full " />
           <div class="flex h-full flex-col px-4 tracking-tight">
-            <h1 class="font-bold text-8xl text-seafoam-300">JUMPWIND</h1>
-            <h2 class="font-bold font-mono text-5xl text-seafoam-300">
-              studio
-            </h2>
+            <h1 class="font-bold text-8xl">JUMPWIND</h1>
+            <h2 class="font-bold font-mono text-5xl">studio</h2>
           </div>
         </div>
       </div>

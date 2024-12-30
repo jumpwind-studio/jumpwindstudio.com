@@ -1,5 +1,6 @@
 import { cva } from "@/lib/cva";
 import { cn } from "@/lib/utils";
+import type { PolymorphicProps } from "@kobalte/core/polymorphic";
 import type { VariantProps } from "cva";
 import {
   type ComponentProps,
@@ -14,7 +15,7 @@ const sectionVariants = cva({
   variants: {
     variant: {
       default: "bg-background text-foreground",
-      secondary: "text-secondary-foreground text-secondary",
+      secondary: "bg-secondary text-secondary-foreground",
     },
     size: {
       default: "py-24",
